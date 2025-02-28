@@ -8,10 +8,10 @@ version = "{{cookiecutter.version}}"
 description = "{{cookiecutter.project_short_description}}"
 readme = "README.rst"
 authors = [
-  {name = "{{cookiecutter.full_name}}", email = "{{cookiecutter.email}}"}
+  {name = "ACCESS-NRI", email = "{{cookiecutter.email}}"}
 ]
 maintainers = [
-  {name = "{{cookiecutter.full_name}}", email = "{{cookiecutter.email}}"}
+  {name = "ACCESS-NRI", email = "{{cookiecutter.email}}"}
 ]
 classifiers = [
 

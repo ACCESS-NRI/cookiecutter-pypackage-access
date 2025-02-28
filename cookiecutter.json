@@ -1,11 +1,8 @@
 {
-  "full_name": "ACCESS-NRI",
   "email": "user@anu.edu.au",
-  "github_username": "ACCESS-NRI",
   "project_name": "",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "project_short_description": "ACCESS-NRI Python Boilerplate: A Python package template.",
-  "pypi_username": "{{ cookiecutter.github_username }}",
   "version": "0.0.1",
   "use_pytest": "y",
   "add_pyup_badge": "n",

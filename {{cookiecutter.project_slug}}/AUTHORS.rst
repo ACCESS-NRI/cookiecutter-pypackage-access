@@ -5,7 +5,7 @@ Credits
 Development Lead
 ----------------
 
-* {{ cookiecutter.full_name }} <{{ cookiecutter.email }}>
+* ACCESS-NRI <{{ cookiecutter.email }}>
 
 Contributors
 ------------
