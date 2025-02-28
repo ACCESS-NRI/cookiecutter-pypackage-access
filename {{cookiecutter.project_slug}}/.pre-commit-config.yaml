@@ -1,0 +1,39 @@
+{% if cookiecutter.pre_commit != 'none' %}
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+{%- if cookiecutter.pre_commit == 'on_push' %}
+        stages: [push] 
+{%- elif cookiecutter.pre_commit == 'on_commit' %}
+        stages: [commit]
+{%- elif cookiecutter.pre_commit == 'manual' %}
+        stages: []
+{% endif %}
+  {% if cookiecutter.use_ruff == 'y' %}
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: 'v0.9.6'
+    hooks:
+      - id: ruff
+        args: ['--fix']
+  {%- endif %}
+  {% if cookiecutter.use_black == 'y' %}
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+    - id: black
+      language_version: python3
+  {%- endif %}
+  {% if cookiecutter.use_mypy != 'n' %}
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: 'v1.15.0'  
+    hooks:
+    - id: mypy 
+      name: mypy 
+      args: [{% if cookiecutter.use_mypy == 'strict' %}--strict,{% endif %}ignore-missing-imports,]
+  {% endif %}
+
+{% endif %}
