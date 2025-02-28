@@ -26,15 +26,19 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "coverage",  # testing
+    {% if cookiecutter.use_mypy != 'n' -%}
     "mypy",  # linting
+    {% endif -%}
     "pytest",  # testing
+    {% if cookiecutter.use_ruff == 'y' -%}
     "ruff"  # linting
+    {% endif -%}
 ]
 
 [project.urls]
 
 bugs = "https://github.com/{{cookiecutter.__gh_slug}}/issues"
-changelog = "https://github.com/{{cookiecutter.__gh_slug}}/blob/master/changelog.md"
+changelog = "https://github.com/{{cookiecutter.__gh_slug}}/blob/main/changelog.md"
 homepage = "https://github.com/{{cookiecutter.__gh_slug}}"
 
 [tool.setuptools]
@@ -49,16 +53,19 @@ package-dir = {"" = "src"}
 {% endif %}
 
 
+{% if cookiecutter.use_mypy != 'No' %}
 # Mypy
 # ----
 
 [tool.mypy]
 files = "."
 
+{% if cookiecutter.use_mypy.lower() == "strict" %}
 # Use strict defaults
 strict = true
 warn_unreachable = true
 warn_no_return = true
+{% endif %}
 
 [[tool.mypy.overrides]]
 # Don't require test functions to include types
@@ -66,3 +73,20 @@ module = "tests.*"
 allow_untyped_defs = true
 disable_error_code = "attr-defined"
 
+{% endif %}
+
+{% if cookiecutter.use_versioneer == 'y' %}
+[tool.versioneer]
+VCS = "git"
+style = "pep440"
+versionfile_source = "src/{{cookiecutter.project_slug}}/_version.py"
+versionfile_build = "{{cookiecutter.project_slug}}/_version.py"
+tag_prefix = "v"
+parentdir_prefix = "{cookiecutter.project_name}"
+{% endif %}
+
+[tool.coverage.run]
+omit = [
+    "*/_version.py",
+    "*/data/__init__.py",
+]
