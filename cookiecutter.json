@@ -1,8 +1,8 @@
 {
-  "email": "user@anu.edu.au",
   "project_name": "",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "project_short_description": "ACCESS-NRI Python Boilerplate: A Python package template.",
+  "email": "user@anu.edu.au",
   "version": "0.0.1",
   "use_pytest": "y",
   "add_pyup_badge": "n",
@@ -14,5 +14,5 @@
   "pre_commit": ["on_push", "on_commit", "manual","none"],
   "create_author_file": "y",
   "open_source_license": ["Apache Software License 2.0", "MIT license", "BSD license", "ISC license", "GNU General Public License v3", "Not open source"],
-  "__gh_slug": "{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
+  "__gh_slug": "ACCESS-NRI/{{ cookiecutter.project_slug }}"
 }
