@@ -10,3 +10,10 @@ Forked from the [cookiecutter-pypackage](https://github.com/audreyfeldroy/cookie
 
 
 Work in progress: please report any issues you encounter.
+
+
+## Cliff Notes
+
+- All files related to our template are in the `{{cookiecutter.project_slug}}` directory.
+- The `{{cookiecutter.project_slug}}` directory is the root of the package.
+- Everything is templated with Jinja. 
